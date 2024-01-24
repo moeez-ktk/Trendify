@@ -74,7 +74,7 @@ const getAllCustomers = async (req, res) => {
 
     const customers = await Customer.collection
       .find({}, { projection })
-      .toArray();
+      .lean();
 
     // Aggregate to get number of orders and total spent for each customer
     const customerData = await Order.collection
