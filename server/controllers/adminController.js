@@ -72,22 +72,18 @@ const getAllCustomers = async (req, res) => {
       address: 1,
     };
 
-    const customers = await Customer.collection
-      .find({}, { projection })
-      .lean();
+    const customers = await Customer.find({}, { projection }).lean();
 
     // Aggregate to get number of orders and total spent for each customer
-    const customerData = await Order.collection
-      .aggregate([
-        {
-          $group: {
-            _id: "$customer", // Group by customer ID
-            numOrders: { $sum: 1 }, // Count the number of orders
-            totalSpent: { $sum: "$total" }, // Sum the 'total' field for each order
-          },
+    const customerData = await Order.aggregate([
+      {
+        $group: {
+          _id: "$customer", // Group by customer ID
+          numOrders: { $sum: 1 }, // Count the number of orders
+          totalSpent: { $sum: "$total" }, // Sum the 'total' field for each order
         },
-      ])
-      .toArray();
+      },
+    ]).toArray();
 
     // Merge customer data with the result of the customer collection
     const mergedCustomers = customers.map((customer) => {
@@ -116,7 +112,9 @@ const getAllCustomers = async (req, res) => {
   } catch (error) {
     console.error("Error:", error.message);
     console.error("Error Details:", error);
-    res.status(500).json({ error: `Error getting customers and order data. ${error}` });
+    res
+      .status(500)
+      .json({ error: `Error getting customers and order data. ${error}` });
   }
 };
 
