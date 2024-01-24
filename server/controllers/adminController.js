@@ -115,6 +115,7 @@ const getAllCustomers = async (req, res) => {
     res.json(mergedCustomers);
   } catch (error) {
     console.error("Error:", error.message);
+    console.error("Error Details:", error);
     res.status(500).json({ error: "Error getting customers and order data." });
   }
 };
@@ -122,5 +123,5 @@ const getAllCustomers = async (req, res) => {
 module.exports = {
   authAdmin,
   contactUs,
-  getAllCustomers
+  getAllCustomers,
 };
