@@ -107,7 +107,7 @@ const getAllCustomers = async (req, res) => {
         };
       }
     });
-
+    console.log(mergedCustomers);
     res.json(mergedCustomers);
   } catch (error) {
     console.error("Error:", error.message);
