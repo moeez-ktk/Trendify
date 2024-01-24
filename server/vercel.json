@@ -12,8 +12,28 @@
   ],
   "routes": [
     {
-      "src": "/api(.*)",
-      "dest": "/"
+      "src": "/api/products(.*)",
+      "dest": "/routes/products.js"
+    },
+    {
+      "src": "/api/orders(.*)",
+      "dest": "/routes/orders.js"
+    },
+    {
+      "src": "/api/customers(.*)",
+      "dest": "/routes/customers.js"
+    },
+    {
+      "src": "/api/reviews(.*)",
+      "dest": "/routes/reviews.js"
+    },
+    {
+      "src": "/api/reviews(.*)",
+      "dest": "/routes/admin.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
