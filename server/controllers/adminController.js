@@ -83,7 +83,7 @@ const getAllCustomers = async (req, res) => {
           totalSpent: { $sum: "$total" }, // Sum the 'total' field for each order
         },
       },
-    ]).toArray();
+    ]);
 
     // Merge customer data with the result of the customer collection
     const mergedCustomers = customers.map((customer) => {
