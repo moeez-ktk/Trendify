@@ -19,7 +19,7 @@ const Contact = () => {
 
   const sendDataToAPI = async (formData) => {
     try {
-      const response = await axios.post('https://trendify-bese27c.vercel.app//api/admin/contactus', formData);
+      const response = await axios.post('https://trendify-bese27server.vercel.app//api/admin/contactus', formData);
       console.log('Response from API:', response.data);
 
       // Check if the message was sent successfully

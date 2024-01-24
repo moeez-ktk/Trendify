@@ -25,7 +25,7 @@ const Account = () => {
     //get customer data 
     const fetchCustomer = async () => {
         try {
-            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/customers/${customerId}`)
+            const response = await axios.get(`https://trendify-bese27server.vercel.app/api/customers/${customerId}`)
             setCustomerData(response.data)
         }
         catch (error) {
@@ -39,7 +39,7 @@ const Account = () => {
     //customer orders data
     const fetchCustomerOrders = async () => {
         try {
-            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/orders/customer/${customerId}`)
+            const response = await axios.get(`https://trendify-bese27server.vercel.app/api/orders/customer/${customerId}`)
             setOrderData(response.data);
         }
         catch (error) {
@@ -50,7 +50,7 @@ const Account = () => {
     //products that customer has not yet revieweed
     const fetchProductsWithoutReviews = async () => {
         try {
-            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/orders/productsWithoutReviews/${customerId}`)
+            const response = await axios.get(`https://trendify-bese27server.vercel.app/api/orders/productsWithoutReviews/${customerId}`)
             setToReviewProd(response.data);
         }
         catch (error) {
@@ -61,7 +61,7 @@ const Account = () => {
     //Reviews of teh customer
     const fetchCustomerReviews = async () => {
         try {
-            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/reviews/custReviews?customer=${customerId}`)
+            const response = await axios.get(`https://trendify-bese27server.vercel.app/api/reviews/custReviews?customer=${customerId}`)
             setHistoryReview(response.data)
         }
         catch (error) {

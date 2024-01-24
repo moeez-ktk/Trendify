@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://trendify-bese27c.vercel.app/",
+    origin: "https://trendify-bese27server.vercel.app/",
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
   })

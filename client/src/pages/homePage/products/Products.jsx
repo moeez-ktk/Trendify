@@ -12,7 +12,7 @@ const Products = ({ updateCartLength }) => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://trendify-bese27c.vercel.app/api/products/filter?limit=8"
+          "https://trendify-bese27server.vercel.app/api/products/filter?limit=8"
         ); // Change the limit as needed
         console.log(response.data);
         setCardsData(response.data);
