@@ -6,7 +6,7 @@ import Checkout from './pages/checkoutPage/Checkout'
 import ProductPage from './pages/productPage/ProductPage';
 import SuccessPage from './pages/success/SuccessPage';
 import CancelPage from './pages/cancel/CancelPage';
-import Cart from './pages/cart/Cart';
+import Cart from './pages/Cart/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from './cartService';
 import { setUserState, deleteUserState } from './slices/UserSlice';
