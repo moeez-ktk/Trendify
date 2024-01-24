@@ -86,7 +86,7 @@ const EditUserInfoForm = ({ userData, onUpdate }) => {
     //update user data
     const updateUser = async (updatedData) => {
         try {
-            const response = await axios.patch(`http://localhost:4000/api/customers/`, updatedData);
+            const response = await axios.patch(`https://trendify-bese27c.vercel.app/api/customers/`, updatedData);
 
             console.log(response)
             if (response.status === 200) {

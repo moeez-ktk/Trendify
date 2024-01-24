@@ -32,7 +32,7 @@ const ProductDetail = () => {
     //get product data 
     const fetchProduct = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/products/${productId}`)
+            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/products/${productId}`)
             console.log(response.data)
             setProdData(response.data);
         }
@@ -47,7 +47,7 @@ const ProductDetail = () => {
     //get product reviews
     const fetchReviews = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/reviews/prodReviewsWithCustomer?product=${productId}`);
+            const response = await axios.get(`https://trendify-bese27c.vercel.app/api/reviews/prodReviewsWithCustomer?product=${productId}`);
             setReviewsData(response.data);
         }
         catch (err) {
@@ -58,7 +58,7 @@ const ProductDetail = () => {
     const fetchRelatedProducts = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:4000/api/products/getRelatedProducts/${productId}?category=${prodData.category}&limit=3`
+                `https://trendify-bese27c.vercel.app/api/products/getRelatedProducts/${productId}?category=${prodData.category}&limit=3`
             
             );
             setRelatedProducts(response.data);

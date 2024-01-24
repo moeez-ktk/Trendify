@@ -24,7 +24,7 @@ const UserReview = ({product, onReviewSubmitted}) => {
             orderId: product.orderId
         }
         try{
-            const response = await axios.post('http://localhost:4000/api/reviews', reviewData)
+            const response = await axios.post('https://trendify-bese27c.vercel.app/api/reviews', reviewData)
             setShowAlert(true)
             setAlertMessage('Thank you for youe valuable feedback')
             setAlertType('success')

@@ -31,7 +31,7 @@ const ProductPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          ` http://localhost:4000/api/products/filter?category=${category}`
+          ` https://trendify-bese27c.vercel.app/api/products/filter?category=${category}`
         ); // Change the limit as needed
         console.log("category products from db: ", response.data);
         // console.log(response.data)
@@ -49,7 +49,7 @@ const ProductPage = () => {
     try {
       // Fetch products based on the new category
       const response = await axios.get(
-        `  http://localhost:4000/api/products/filter?category=${cat}`
+        `  https://trendify-bese27c.vercel.app/api/products/filter?category=${cat}`
       );
       setProducts(response.data);
       setFilteredProducts([]); // Reset filtered products
@@ -112,7 +112,7 @@ const ProductPage = () => {
 
   const handleViewAll = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/products/`); // Change the limit as needed
+      const response = await axios.get(`https://trendify-bese27c.vercel.app/api/products/`); // Change the limit as needed
       console.log("category products: ", response.data);
       // console.log(response.data)
 

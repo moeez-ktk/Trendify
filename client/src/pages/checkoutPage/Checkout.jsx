@@ -126,7 +126,7 @@ const CheckoutPage = () => {
     try {
       console.log("in fetchCustomer function");
       const response = await axios.get(
-        ` http://localhost:4000/api/customers/${userId}`
+        ` https://trendify-bese27c.vercel.app/api/customers/${userId}`
       );
       console.log("customer response data ", response.data);
       setCustomerDataObj(response.data);
@@ -262,7 +262,7 @@ const CheckoutPage = () => {
 
         try {
           const response = await axios.post(
-            "http://localhost:4000/api/orders/create-payment",
+            "https://trendify-bese27c.vercel.app/api/orders/create-payment",
             body
           );
 
@@ -348,7 +348,7 @@ const CheckoutPage = () => {
     try {
       // Make a request to your backend to create the order
       const response = await axios.post(
-        "http://localhost:4000/api/orders/placeorder",
+        "https://trendify-bese27c.vercel.app/api/orders/placeorder",
         orderData
       );
       console.log(response.data); // Log the response from the backend

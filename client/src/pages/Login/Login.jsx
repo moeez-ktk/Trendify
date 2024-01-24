@@ -80,7 +80,7 @@ const Login = () => {
     // user login check
     const userCheck = async (email, password) => {
         try {
-            const response = await axios.post('http://localhost:4000/api/customers/login', { email, password })
+            const response = await axios.post('https://trendify-bese27c.vercel.app/api/customers/login', { email, password })
             console.log('login response ', response);
             dispatch(setUserState(response.data._id))
             navigate(page);
@@ -100,7 +100,7 @@ const Login = () => {
     const adminCheck = async (email, password) => {
 
         try {
-            const response = await axios.post('http://localhost:4000/api/admin/login', { email, password })
+            const response = await axios.post('https://trendify-bese27c.vercel.app/api/admin/login', { email, password })
             navigate('/Admin')
 
         }
@@ -180,7 +180,7 @@ const Login = () => {
         console.log(signupFormData);
         if (signupFormData.captcha == captcha) {
             try {
-                const response = await axios.post('http://localhost:4000/api/customers/createCustomer', signupFormData)
+                const response = await axios.post('https://trendify-bese27c.vercel.app/api/customers/createCustomer', signupFormData)
                 console.log(response)
                 if (response.status === 200) {
                     setShowAlert(true)
@@ -261,7 +261,7 @@ const Login = () => {
         try {
             // Send form data to the server for email sending
             const response = await axios
-                .post("http://localhost:4000/api/customers/captcha", tempData)
+                .post("https://trendify-bese27c.vercel.app/api/customers/captcha", tempData)
                 .then((result) => {
                     if (result.data == 'Email sent') {
                         //show sign up button
