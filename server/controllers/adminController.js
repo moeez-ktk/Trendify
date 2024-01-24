@@ -116,7 +116,7 @@ const getAllCustomers = async (req, res) => {
   } catch (error) {
     console.error("Error:", error.message);
     console.error("Error Details:", error);
-    res.status(500).json({ error: "Error getting customers and order data." });
+    res.status(500).json({ error: `Error getting customers and order data. ${error}` });
   }
 };
 
