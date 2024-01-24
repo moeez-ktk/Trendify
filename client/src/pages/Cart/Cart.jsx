@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { setPageState } from "../../slices/PageSlice";
 
 const Cart = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.value);
 
   const dispatch = useDispatch();
   dispatch(setPageState("/Cart"));

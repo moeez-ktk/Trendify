@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "controllers/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/products(.*)",
+      "dest": "/routes/products.js"
+    },
+    {
+      "src": "/api/orders(.*)",
+      "dest": "/routes/orders.js"
+    },
+    {
+      "src": "/api/customers(.*)",
+      "dest": "/routes/customers.js"
+    },
+    {
+      "src": "/api/reviews(.*)",
+      "dest": "/routes/reviews.js"
+    },
+    {
+      "src": "/api/reviews(.*)",
+      "dest": "/routes/admin.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}

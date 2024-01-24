@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRulerHorizontal, faXmark } from "@fortawesome/free-solid-svg-icons";
-import Sizechart from '../../assets/pics/sizechart.png';
+import Sizechart from '../../assets/pics/Sizechart.png';
 
 
 const Details = ({isStitched, fabric, piece}) => {

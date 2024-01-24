@@ -12,11 +12,17 @@ const adminRoutes = require("./routes/admin");
 let db;
 
 //express app
- const app = express();
+const app = express();
 
 //middleware
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -50,23 +56,23 @@ app.use("/api/admin", adminRoutes);
 //     console.log(err);
 //   });
 
-
-  // If the script is not running as part of a test, start the server
-if (process.env.NODE_ENV !== 'test') {
+// If the script is not running as part of a test, start the server
+if (process.env.NODE_ENV !== "test") {
   // const mongoose = require('mongoose');
 
   //connect to DB
-  mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('connected to database')
-    // listen to port
-    app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
+  mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log("connected to database");
+      // listen to port
+      app.listen(process.env.PORT, () => {
+        console.log("listening for requests on port", process.env.PORT);
+      });
     })
-  }) 
-  .catch((error) => {
-    console.error('Error connecting to the database:', error);
-  });
+    .catch((error) => {
+      console.error("Error connecting to the database:", error);
+    });
 }
 
-module.exports=app
+module.exports = app;
