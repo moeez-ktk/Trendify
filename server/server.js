@@ -8,6 +8,7 @@ const customerRoutes = require("./routes/customers");
 const orderRoutes = require("./routes/orders");
 const reviewRoutes = require("./routes/reviews");
 const adminRoutes = require("./routes/admin");
+const router=require("./routes/index.js")
 
 let db;
 
@@ -16,6 +17,7 @@ const app = express();
 
 //middleware
 app.use(express.json());
+
 const corsOptions = (req, res, next) => {
   // CORS headers
   res.header(
@@ -49,11 +51,12 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.json({ mssg: "Welcome to the app" });
 });
-app.use("/api/products", productRoutes);
-app.use("/api/customers", customerRoutes);
-app.use("/api/orders", orderRoutes);
-app.use("/api/reviews", reviewRoutes);
-app.use("/api/admin", adminRoutes);
+// app.use("/api/products", productRoutes);
+// app.use("/api/customers", customerRoutes);
+// app.use("/api/orders", orderRoutes);
+// app.use("/api/reviews", reviewRoutes);
+// app.use("/api/admin", adminRoutes);
+app.use(router);
 
 // //connect to DB
 // mongoose
