@@ -9,7 +9,6 @@ const orderRoutes = require("./routes/orders");
 const reviewRoutes = require("./routes/reviews");
 const adminRoutes = require("./routes/admin");
 
-
 let db;
 
 //express app
@@ -18,27 +17,14 @@ const app = express();
 //middleware
 app.use(express.json());
 
-const corsOptions = (req, res, next) => {
-  // CORS headers
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://trendify-bese27c.vercel.app/"
-  ); // restrict it to the required domain
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  // Set custom headers for CORS
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-type,Accept,X-Custom-Header"
-  );
 
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  return next();
-};
-
-app.use(cors(corsOptions()));
+app.use(
+  cors({
+    origin: ("Access-Control-Allow-Origin","https://trendify-bese27c.vercel.app/"),
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -46,6 +32,7 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
 
 //routes
 app.get("/", (req, res) => {
