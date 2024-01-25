@@ -17,7 +17,7 @@ const app = express();
 //middleware
 app.use(express.json());
 
-const corsOptions = function (req, res, next) {
+const corsOptions = (req, res, next) => {
   // CORS headers
   res.header(
     "Access-Control-Allow-Origin",
@@ -37,7 +37,7 @@ const corsOptions = function (req, res, next) {
   return next();
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions()));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
