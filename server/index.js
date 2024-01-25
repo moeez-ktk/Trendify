@@ -8,7 +8,6 @@ const customerRoutes = require("./routes/customers");
 const orderRoutes = require("./routes/orders");
 const reviewRoutes = require("./routes/reviews");
 const adminRoutes = require("./routes/admin");
-const router=require("./routes/index.js")
 
 let db;
 
